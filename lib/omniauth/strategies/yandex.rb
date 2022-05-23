@@ -31,11 +31,7 @@ module OmniAuth
       end
 
       def callback_url
-        if options.authorize_options.respond_to? :callback_url
-          options.authorize_options.callback_url
-        else
-          super
-        end
+        options.redirect_url || super
       end
 
       private
